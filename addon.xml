@@ -13,13 +13,15 @@
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Ifttt Service</summary>
-		<description lang="en">calls ifttt based on events</description>
+		<summary lang="en">IFTTT Service</summary>
+		<description lang="en">Calls IFTTT based on events</description>
 		<disclaimer lang="en">Open Source</disclaimer>
 		<platform>all</platform>
+		<source>https://github.com/plucka3/service.ifttt</source>
 		<assets>
 			<icon>resources/icon.png</icon>
 			<screenshot>resources/screenshot.png</screenshot>
+			<fanart>resources/fanart.jpg</fanart>
 		</assets>
 	</extension>
 </addon>
