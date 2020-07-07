@@ -30,14 +30,14 @@ class Main:
         self._daemon()
 
     def _init_vars( self ):
-        self.Monitor = Kodi_Monitor()
-        self.Player = Kodi_Player()        
+        self.Monitor = kodiMonitor()
+        self.Player = kodiPlayer()        
 
     def _daemon( self ):
         while (not xbmc.abortRequested):
             xbmc.sleep(500)
            
-class Kodi_Monitor(xbmc.Monitor):
+class kodiMonitor(xbmc.Monitor):
   def __init__(self):
       xbmc.Monitor.__init__(self)
         
@@ -45,7 +45,7 @@ class Kodi_Monitor(xbmc.Monitor):
       settings.init()
       settings.readPrefs()
 
-class Kodi_Player(xbmc.Player):
+class kodiPlayer(xbmc.Player):
     
     def __init__(self, *args):
        xbmc.Player.__init__(self, *args)
@@ -70,7 +70,9 @@ class Kodi_Player(xbmc.Player):
         ifttt(settings.eventStop)
 
 def ifttt(event):
-    urllib2.urlopen(settings.iftttUrl + event + settings.iftttPath + settings.iftttKey).read()
+    response = urllib2.urlopen(settings.iftttUrl + event + settings.iftttPath + settings.iftttKey)
+    html = response.read()
+    debug('IFTTT called: ' + settings.iftttUrl + event + settings.iftttPath + settings.iftttKey + ' - result:' + html)
 
 def debug(msg, *args):
     try:
