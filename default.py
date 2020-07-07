@@ -55,6 +55,11 @@ class kodiPlayer(xbmc.Player):
         if self.isPlayingVideo():
             ifttt(settings.eventStart)
             
+    def onPlayBackStarted(self):
+        debug('entering onPlayBackStarted')
+        if self.isPlayingVideo():
+            ifttt(settings.eventStart)
+
     def onPlayBackPaused(self):
         debug('entering onPlayBackPaused')
         if self.isPlayingVideo():
