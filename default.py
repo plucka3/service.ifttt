@@ -51,33 +51,29 @@ class kodiPlayer(xbmc.Player):
        xbmc.Player.__init__(self, *args)
         
     def onAVStarted(self):
-        debug('entering onAVStarted')
-        if self.isPlayingVideo():
-            ifttt(settings.eventStart)
+        debug('event onAVStarted')
+        ifttt(settings.eventStart)
             
     def onPlayBackStarted(self):
-        debug('entering onPlayBackStarted')
-        if self.isPlayingVideo():
-            ifttt(settings.eventStart)
+        debug('event onPlayBackStarted')
+        ifttt(settings.eventStart)
 
     def onPlayBackPaused(self):
-        debug('entering onPlayBackPaused')
-        if self.isPlayingVideo():
-            ifttt(settings.eventPause)
+        debug('event onPlayBackPaused')
+        ifttt(settings.eventPause)
             
     def onPlayBackResumed(self):
-        debug('entering onPlayBackResumed')
-        if self.isPlayingVideo():
-            ifttt(settings.eventResume)
+        debug('event onPlayBackResumed')
+        ifttt(settings.eventResume)
 
     def onPlayBackStopped(self):
-        debug('entering onPlayBackStopped')
+        debug('event onPlayBackStopped')
         ifttt(settings.eventStop)
 
 def ifttt(event):
     response = urllib2.urlopen(settings.iftttUrl + event + settings.iftttPath + settings.iftttKey)
     html = response.read()
-    debug('IFTTT called: ' + settings.iftttUrl + event + settings.iftttPath + settings.iftttKey + ' - result:' + html)
+    debug('IFTTT call: ' + settings.iftttUrl + event + settings.iftttPath + settings.iftttKey + ' - result:' + html)
 
 def debug(msg, *args):
     try:
@@ -90,11 +86,11 @@ def debug(msg, *args):
                 arg = unicode(arg)
             txt = txt + u"/" + arg
         if txt == u'':
-            xbmc.log(u"LPM: {0}".format(msg).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
+            xbmc.log(u"[service.ifttt]: {0}".format(msg).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
         else:
-            xbmc.log(u"LPM: {0}#{1}#".format(msg, txt).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
+            xbmc.log(u"[service.ifttt]: {0}#{1}#".format(msg, txt).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
     except:
-        print "LPM: Error in Debugoutput"
+        print "[service.ifttt]: Error in Debugoutput"
         print msg
         print args
 
