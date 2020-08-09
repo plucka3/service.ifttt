@@ -70,10 +70,11 @@ class kodiPlayer(xbmc.Player):
         debug('event onPlayBackStopped')
         ifttt(settings.eventStop)
 
-def ifttt(event):
-    response = urllib2.urlopen(settings.iftttUrl + event + settings.iftttPath + settings.iftttKey)
-    html = response.read()
-    debug('IFTTT call: ' + settings.iftttUrl + event + settings.iftttPath + settings.iftttKey + ' - result:' + html)
+def ifttt(events):
+    for event in events.split(","):
+        response = urllib2.urlopen(settings.iftttUrl + event + settings.iftttPath + settings.iftttKey)
+        html = response.read()
+        debug('IFTTT call: ' + settings.iftttUrl + event + settings.iftttPath + settings.iftttKey + ' - result:' + html)
 
 def debug(msg, *args):
     try:
