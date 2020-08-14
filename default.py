@@ -87,11 +87,11 @@ def debug(msg, *args):
                 arg = unicode(arg)
             txt = txt + u"/" + arg
         if txt == u'':
-            xbmc.log(u"[service.ifttt]: {0}".format(msg).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
+            xbmc.log(u"[plugin.video.ifttt]: {0}".format(msg).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
         else:
-            xbmc.log(u"[service.ifttt]: {0}#{1}#".format(msg, txt).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
+            xbmc.log(u"[plugin.video.ifttt]: {0}#{1}#".format(msg, txt).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
     except:
-        print("[service.ifttt]: Error in Debugoutput")
+        print("[plugin.video.ifttt]: Error in Debugoutput")
         print(msg)
         print(args)
 
