@@ -2,7 +2,7 @@
 <addon
 	id="service.ifttt"
 	name="IFTTT Service"
-	version="1.0.0"
+	version="1.0.1"
 	provider-name="plucka"
 	>
 	<requires>
