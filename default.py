@@ -91,9 +91,9 @@ def debug(msg, *args):
         else:
             xbmc.log(u"[service.ifttt]: {0}#{1}#".format(msg, txt).encode('ascii','xmlcharrefreplace'), xbmc.LOGDEBUG)
     except:
-        print "[service.ifttt]: Error in Debugoutput"
-        print msg
-        print args
+        print("[service.ifttt]: Error in Debugoutput")
+        print(msg)
+        print(args)
 
     
 def log(level, msg):
