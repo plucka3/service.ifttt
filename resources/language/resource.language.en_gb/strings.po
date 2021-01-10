@@ -40,6 +40,11 @@ msgctxt "#30105"
 msgid "Event Stop:"
 msgstr ""
 
+# Jdbye
+msgctxt "#30106"
+msgid "Event End:"
+msgstr ""
+
 msgctxt "#30200"
 msgid "Advanced"
 msgstr ""

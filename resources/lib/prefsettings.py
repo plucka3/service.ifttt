@@ -29,3 +29,5 @@ class settings():
       self.eventResume = addon.getSetting('eventResume')
       self.eventPause = addon.getSetting('eventPause')
       self.eventStop = addon.getSetting('eventStop')
+      self.eventEnd = addon.getSetting('eventEnd') # Jdbye
+	  

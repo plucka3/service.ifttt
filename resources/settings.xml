@@ -5,6 +5,7 @@
 		<setting id="eventResume" type="text" label="30103" default="LightsOff" />
 		<setting id="eventPause" type="text" label="30104" default="LightsOn" />
 		<setting id="eventStop" type="text" label="30105" default="LightsOn" />
+		<setting id="eventEnd" type="text" label="30106" default="LightsOn" />
 	</category>
 	
 	<category label="30200">
