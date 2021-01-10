@@ -30,12 +30,12 @@ class Main:
 
     def _init_vars( self ):
         self.Monitor = kodiMonitor()
-        self.Player = kodiPlayer()        
+        self.Player = kodiPlayer() 
 
     def _daemon( self ):
         while (not xbmc.abortRequested):
             xbmc.sleep(500)
-           
+
 class kodiMonitor(xbmc.Monitor):
   def __init__(self):
       xbmc.Monitor.__init__(self)
@@ -68,6 +68,14 @@ class kodiPlayer(xbmc.Player):
     def onPlayBackStopped(self):
         debug('event onPlayBackStopped')
         ifttt(settings.eventStop)
+    def onPlayBackEnded(self): # Jdbye
+        debug('event onPlayBackEnded')
+        xbmc.sleep(2000)
+        if (not xbmc.Player().isPlaying()):
+            debug('Playback is stopped')
+            ifttt(settings.eventEnd)
+        else:
+            debug('Playback is still running')
 
 def ifttt(events):
     for event in events.split(","):
